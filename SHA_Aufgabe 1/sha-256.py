@@ -1,11 +1,13 @@
 import hashlib
+import json
 
-with open('file.json', 'rb') as file:
-    buf = file.read()
-    hashedFile = hashlib.sha256(buf)
+data = ""
+with open('file.json', 'r') as file:
+    data = json.load(file)
+    for idx, person in enumerate(data):
+        data[idx]['firstname'] = hashlib.sha256(person['firstname'].encode()).hexdigest()
+        data[idx]['lastname'] = hashlib.sha256(person['lastname'].encode()).hexdigest()
 
-hexFile = open("hash.txt", "w")
-hexFile.write(hashedFile.hexdigest())
+hexFile = open("hashed.json", "w")
+hexFile.write(str(data))
 hexFile.close()
-
-print(hashedFile.hexdigest())

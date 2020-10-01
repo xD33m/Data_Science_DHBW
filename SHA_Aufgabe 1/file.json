@@ -1,4 +1,4 @@
-{
-	"Person1": { "firstname": "John", "lastname": "Wick" },
-	"Person2": { "firstname": "James", "lastname": "Bond" }
-}
+[
+	{ "firstname": "John", "lastname": "Wick" },
+	{ "firstname": "James", "lastname": "Bond" }
+]
